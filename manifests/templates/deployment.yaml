@@ -1,0 +1,25 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-ee7ed86d
+  labels:
+    app: book-ee7ed86d
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: book-ee7ed86d
+  template:
+    metadata:
+      labels:
+        app: book-ee7ed86d
+    spec:
+      containers:
+        - name: book-ee7ed86d
+          image: docker.io/phengbunath/book-ee7ed86d:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
